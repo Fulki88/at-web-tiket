@@ -1,0 +1,40 @@
+{
+  "name": "at-web-tiket",
+  "version": "1.0.0",
+  "description": "",
+  "main": "cucumber.conf.js",
+  "scripts": {
+    "test:chrome": "cross-env NIGHTWATCH_ENV=chrome npm test",
+    "test:firefox": "cross-env NIGHTWATCH_ENV=firefox npm test",
+    "test": "mkdirp report && cucumber-js --require-module @babel/register --require cucumber.conf.js --require step-definitions --format node_modules/cucumber-pretty --format json:report/cucumber_report.json",
+    "debug": "cross-env DEBUG=nightwatch-api NIGHTWATCH_ENV=chrome NIGHTWATCH_VERBOSE=true node --inspect ./node_modules/cucumber/bin/cucumber-js --require-module @babel/register --require cucumber.conf.js --require step-definitions --format node_modules/cucumber-pretty"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fulki88/at-web-tiket.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fulki88/at-web-tiket/issues"
+  },
+  "homepage": "https://github.com/Fulki88/at-web-tiket#readme",
+  "dependencies": {
+    "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/register": "^7.10.5",
+    "chromedriver": "^87.0.4",
+    "cross-env": "^7.0.2",
+    "cucumber": "^6.0.5",
+    "cucumber-html-reporter": "^5.2.0",
+    "cucumber-pretty": "^6.0.0",
+    "eslint": "^7.16.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "geckodriver": "^1.19.1",
+    "mkdirp": "^1.0.4",
+    "nightwatch": "^1.3.7",
+    "nightwatch-api": "^3.0.1"
+  }
+}
