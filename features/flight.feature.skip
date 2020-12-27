@@ -1,0 +1,9 @@
+
+Feature: Tiket.com Skill Test
+
+  Scenario: Product Flight: Create transaction with Virtual Account for domestic round trip with xx transit and login with email
+  # always need otp in new device
+
+    Given a web browser is on the Tiket.com page
+    When the user login use email with "testingff01@gmail.com" as email and "CobaLogin123@" as password
+    

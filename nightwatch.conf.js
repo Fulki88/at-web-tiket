@@ -44,6 +44,7 @@ module.exports = {
             'disable-infobars',
             'disable-popup-blocking',
             'disable-notifications',
+            '--incognito',
           ],
         },
       },

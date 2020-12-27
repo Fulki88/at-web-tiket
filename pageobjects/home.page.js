@@ -6,6 +6,8 @@ const element = {
   hotelBox: '//a[@href="/hotel"]/div',
   trainBox: '//a[@href="/kereta-api"]/div',
   destinationPlace: '//div[@class="search-input-div empty-input"]',
+  homeButton: '//a[@href="https://m.tiket.com"]',
+  accountButton: '//a[@href="/myaccount"]',
 };
 
 export const verifyPage = async () => {
@@ -17,4 +19,16 @@ export const verifyPage = async () => {
 
 export const clickHotel = async () => {
   await base.clickElement(element.hotelBox);
+};
+
+export const clickTrain = async () => {
+  await base.clickElement(element.trainBox);
+};
+
+export const clickHomeButton = async () => {
+  await base.clickElement(element.homeButton);
+};
+
+export const clickAccountButton = async () => {
+  await base.clickElement(element.accountButton);
 };

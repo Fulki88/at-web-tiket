@@ -11,7 +11,7 @@ const {
   stopWebDriver,
   getNewScreenshots,
 } = require('nightwatch-api');
-const reporter = require('cucumber-html-reporter');
+// const reporter = require('cucumber-html-reporter');
 
 setDefaultTimeout(60000);
 
@@ -24,23 +24,23 @@ Before(async () => {
 });
 
 AfterAll(async () => {
-  setTimeout(() => {
-    reporter.generate({
-      theme: 'bootstrap',
-      jsonFile: 'report/cucumber_report.json',
-      output: 'report/cucumber_report.html',
-      reportSuiteAsScenarios: true,
-      launchReport: false,
-      metadata: {
-        'App Version': '0.3.2',
-        'Test Environment': 'POC',
-      },
-    });
-  }, 1000);
+  // setTimeout(() => {
+  //   reporter.generate({
+  //     theme: 'bootstrap',
+  //     jsonFile: 'report/cucumber_report.json',
+  //     output: 'report/cucumber_report.html',
+  //     reportSuiteAsScenarios: true,
+  //     launchReport: false,
+  //     metadata: {
+  //       'App Version': '0.3.2',
+  //       'Test Environment': 'POC',
+  //     },
+  //   });
+  // }, 1000);
   await stopWebDriver();
 });
 
 After(async () => {
-  // await closeSession();
+  await closeSession();
   // getNewScreenshots().forEach((file) => this.attach(fs.readFileSync(file), 'image/png'));
 });

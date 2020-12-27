@@ -8,6 +8,9 @@ const element = {
   todayCalender: '//div[text()="Hari ini"]/following-sibling::div',
   completeGuestRoom: '//button[text()="Selesai"][@type="button"]',
   findHotelButton: '//button[text()="Cari Hotel"][@type="button"]',
+  textCheckInDate: '//div[text()="Check-in"]/following::div[@class="search-input-div"][1]',
+  textCheckOutDate: '//div[text()="Check-out"]/following::div[@class="search-input-div"][1]',
+  textGuestRoom: '//div[text()="Kamar & Tamu"]/following::div[@class="search-input-div"][1]',
 
   // css
   checkInDate: '.search-label.search-checkin .search-input-div',
@@ -32,11 +35,11 @@ export const chooseDestination = async () => {
   await base.clickElement(elFunction('Bandung').firstDestination);
 };
 
-export const chooseDate = async () => {
+export const chooseDate = async (daysFromNow) => {
   await baseCss.clickElementViaInject(element.checkInDate);
-  // buat function untuk memilih hari
-  await base.clickElement(elFunction(26).chooseDate);
-  await base.clickElement(elFunction(26 + 1).chooseDate);
+  const choosenDay = await base.generateNextDay(daysFromNow);
+  await base.clickElement(elFunction(choosenDay).chooseDate);
+  await base.clickElement(elFunction(choosenDay + 1).chooseDate);
 };
 
 export const chooseGuestRoom = async (guest, room) => {
@@ -49,4 +52,19 @@ export const chooseGuestRoom = async (guest, room) => {
 export const clickFindHotel = async () => {
   await base.pause(1000);
   await base.clickElement(element.findHotelButton);
+};
+
+export const getDetailSearch = async () => {
+  const textCheckInDate = await base.getStringText(element.textCheckInDate);
+  const textCheckOutDate = await base.getStringText(element.textCheckOutDate);
+  const textGuestRoom = (await base.getStringText(element.textGuestRoom)).split(', ');
+
+  const text = {
+    checkInDate: textCheckInDate,
+    checkOutDate: textCheckOutDate,
+    roomTotal: textGuestRoom[0],
+    guestTotal: textGuestRoom[1],
+  };
+
+  return text;
 };
