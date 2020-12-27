@@ -64,6 +64,6 @@ When(/^the user complete hotel payment with non instant payment$/, async () => {
 
 Then(/^hotel transaction is created$/, async () => {
   await myOrderPage.verifyPage();
-  await myOrderPage.clickFirstOrder();
+  await myOrderPage.clickFirstOrderHotel();
   await myOrderPage.verifyDetail(itemTransaction);
 });

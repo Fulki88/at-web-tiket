@@ -43,7 +43,6 @@ export const verifyDetail = async (itemTransaction) => {
 };
 
 export const verifyTrainDetail = async (itemTransaction) => {
-  // await base.assertContainsText(element.totalPrice, itemTransaction.totalPrice);
   await base.assertContainsText(element.productName, itemTransaction.productName);
   await base.assertContainsText(element.guestName, itemTransaction.guestName);
   await base.assertContainsText(element.checkInDate, itemTransaction.checkInDate);

@@ -56,5 +56,5 @@ When(/^the user complete train payment with non instant payment$/, async () => {
 
 Then(/^train transaction is created$/, async () => {
   await myOrderPage.verifyPage();
-  await myOrderPage.clickFirstOrder();
+  await myOrderPage.clickFirstOrderTrain();
 });
